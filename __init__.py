@@ -38,6 +38,6 @@ class TodayInHistorySkill(MycroftSkill):
         self.register_intent(random_event_intent, self.handle_random_event_intent)
 
 
-   def handle_random_event_intent(self, message);
+   def handle_random_event_intent(self, message):
 def create_skill():
     return TodayInHistorySkill()
