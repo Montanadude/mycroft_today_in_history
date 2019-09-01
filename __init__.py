@@ -39,6 +39,9 @@ class TodayInHistorySkill(MycroftSkill):
 
 
    def handle_random_event_intent(self, message):
+              
+   def stop(self):
+       pass
        
    def create_skill():
-      return TodayInHistorySkill()
+       return TodayInHistorySkill()
