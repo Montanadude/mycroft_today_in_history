@@ -37,8 +37,14 @@ class TodayInHistorySkill(MycroftSkill):
            require("RandomEventKeyword").buid()
         self.register_intent(random_event_intent, self.handle_random_event_intent)
 
+  def handle_random_event_intent(self, message):
+        url =" http://history.muffinlabs.com/date"
+        r=requests.get(url)
+        json_output=r.json()
+        output=json_output['data']
+        events=output["Events"]
 
-   def handle_random_event_intent(self, message):
+        self.speak_dialog("Today in history event {} occured".format(events[0]['text']))
               
    def stop(self):
        pass
