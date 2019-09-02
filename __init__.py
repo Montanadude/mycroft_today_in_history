@@ -33,13 +33,13 @@ class TodayInHistorySkill(MycroftSkill):
 #        
 
     def initialize(self):
-        self.load_data_files(dirname(__file__))
+        #self.load_data_files(dirname(__file__))
         
         random_event_intent = IntentBuilder("RandomEventIntent").\
            require("RandomEventKeyword").buid()
         self.register_intent(random_event_intent, self.handle_random_event_intent)
 
-  def handle_random_event_intent(self, message):
+    def handle_random_event_intent(self, message):
         url =" http://history.muffinlabs.com/date"
         r=requests.get(url)
         json_output=r.json()
@@ -48,8 +48,8 @@ class TodayInHistorySkill(MycroftSkill):
 
         self.speak_dialog("Today in history event {} occured".format(events[0]['text']))
               
-   def stop(self):
-       pass
+    def stop(self):
+        pass
        
-   def create_skill():
-       return TodayInHistorySkill()
+    def create_skill():
+        return TodayInHistorySkill()
